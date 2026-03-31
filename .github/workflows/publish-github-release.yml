@@ -7,7 +7,7 @@ on:
 jobs:
   publish-release:
     name: Publish GitHub Release
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-24.04
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       SSH_RSA_KEY: ${{ secrets.DOTCMS_BUILD_RSA_KEY  }}
@@ -15,7 +15,7 @@ jobs:
     steps:
       - name: Get commit message
         id: get-commit-message
-        uses: dotcms/get-commit-message@master
+        uses: dotcms/get-commit-message@main
         with:
           accessToken: ${{ secrets.GITHUB_TOKEN }}
       - name: Prepare
