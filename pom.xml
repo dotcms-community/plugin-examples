@@ -15,7 +15,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
-        <dotcms-core.version>26.02.11-01</dotcms-core.version>
+        <dotcms-core.version>26.03.27-01</dotcms-core.version>
     </properties>
 
     <repositories>
