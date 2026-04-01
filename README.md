@@ -36,7 +36,7 @@ A collection of working, tested example plugins showing how to extend and custom
 ## Getting Started
 
 ```sh
-git clone https://github.com/dotCMS/plugin-examples.git
+git clone https://github.com/dotcms-community/plugin-examples.git
 cd plugin-examples
 ```
 
