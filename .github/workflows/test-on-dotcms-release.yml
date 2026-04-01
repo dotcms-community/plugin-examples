@@ -15,7 +15,9 @@ on:
         default: ''
 
 permissions:
-  actions: write   # needed to update the LAST_TESTED_DOTCMS_VERSION variable
+  actions: write        # update LAST_TESTED_DOTCMS_VERSION variable
+  contents: write       # push version-bump branch
+  pull-requests: write  # open PR
 
 jobs:
   check-release:
@@ -74,6 +76,14 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Bump dotcms-core.version in pom.xml
+        run: |
+          sed -i "s|<dotcms-core.version>.*</dotcms-core.version>|<dotcms-core.version>${{ env.DOTCMS_VERSION }}</dotcms-core.version>|" pom.xml
+          echo "pom.xml updated:"
+          grep dotcms-core.version pom.xml
 
       - name: Set up JDK 21
         uses: actions/setup-java@v4
@@ -92,6 +102,24 @@ jobs:
           echo "Testing against image: ${DOTCMS_IMAGE}"
           chmod +x .github/bin/test-install-plugins.sh
           .github/bin/test-install-plugins.sh
+
+      - name: Open version-bump PR
+        if: success()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          BRANCH="chore/dotcms-core-${{ env.DOTCMS_VERSION }}"
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -b "${BRANCH}"
+          git add pom.xml
+          git commit -m "chore: bump dotcms-core.version to ${{ env.DOTCMS_VERSION }}"
+          git push origin "${BRANCH}"
+          gh pr create \
+            --title "chore: bump dotcms-core.version to ${{ env.DOTCMS_VERSION }}" \
+            --body "Automated version bump — plugin tests passed against \`dotcms/dotcms-dev:${{ env.DOTCMS_VERSION }}\`." \
+            --base main \
+            --head "${BRANCH}"
 
       - name: Update last tested version
         if: success()
