@@ -3,7 +3,7 @@
 [![Build Check](https://github.com/dotcms-community/plugin-examples/actions/workflows/build-check.yml/badge.svg)](https://github.com/dotcms-community/plugin-examples/actions/workflows/build-check.yml)
 [![Plugin Installation Test](https://github.com/dotcms-community/plugin-examples/actions/workflows/test-install-plugins.yml/badge.svg)](https://github.com/dotcms-community/plugin-examples/actions/workflows/test-install-plugins.yml)
 
-A collection of working, tested example plugins showing how to extend and customize dotCMS using OSGi bundles. Every plugin in this repo is verified to build and reach ACTIVE state in a dotCMS nightly container on every push.
+A collection of working, tested example plugins showing how to extend and customize dotCMS using OSGi bundles. Every plugin in this repo is verified to build and reach ACTIVE state in a live dotCMS container on every push — and automatically tested against every new dotCMS release, making it a reference for how to confidently ship plugins in an evergreen dotCMS environment.
 
 ## Plugins
 
@@ -87,6 +87,17 @@ Every push and pull request runs two checks:
 | **Plugin Installation Test** | Starts a `dotcms/dotcms-dev:nightly` container, installs all JARs, and asserts every bundle reaches OSGi ACTIVE state (32) |
 
 Results are posted as a step summary on each Actions run.
+
+## Evergreen Compatibility
+
+dotCMS ships releases continuously. This repo automatically stays current with them:
+
+- Every 4 hours, a workflow polls `dotcms/core` for new releases
+- When a new version is detected, all plugins are built and tested against the matching `dotcms/dotcms-dev` image
+- If tests pass, a pull request is opened automatically bumping `dotcms-core.version` in the parent `pom.xml`
+- The last verified dotCMS version is tracked as a repository variable so checks are skipped when nothing has changed
+
+This gives plugin developers a continuously-validated reference for what works — and when something breaks, it's caught within hours of a dotCMS release.
 
 ## Documentation
 
