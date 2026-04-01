@@ -1,7 +1,7 @@
 # dotCMS OSGi Plugin Examples
 
-[![Build Check](https://github.com/dotCMS-community/plugin-examples/actions/workflows/build-check.yml/badge.svg)](https://github.com/dotCMS/plugin-examples/actions/workflows/build-check.yml)
-[![Plugin Installation Test](https://github.com/dotCMS-community/plugin-examples/actions/workflows/test-install-plugins.yml/badge.svg)](https://github.com/dotCMS/plugin-examples/actions/workflows/test-install-plugins.yml)
+[![Build Check](https://github.com/dotcms-community/plugin-examples/actions/workflows/build-check.yml/badge.svg)](https://github.com/dotcms-community/plugin-examples/actions/workflows/build-check.yml)
+[![Plugin Installation Test](https://github.com/dotcms-community/plugin-examples/actions/workflows/test-install-plugins.yml/badge.svg)](https://github.com/dotcms-community/plugin-examples/actions/workflows/test-install-plugins.yml)
 
 A collection of working, tested example plugins showing how to extend and customize dotCMS using OSGi bundles. Every plugin in this repo is verified to build and reach ACTIVE state in a dotCMS nightly container on every push.
 
