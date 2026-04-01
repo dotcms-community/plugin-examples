@@ -17,7 +17,7 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 REPO_ROOT="$(cd "${SCRIPT_DIR}/../.." && pwd)"
 
 PLUGINS_DIR="${1:-/tmp/dotcms-plugins}"
-DOTCMS_IMAGE="${DOTCMS_IMAGE:-dotcms/dotcms-dev:nightly}"
+DOTCMS_IMAGE="${DOTCMS_IMAGE:-mirror.gcr.io/dotcms/dotcms-dev:nightly}"
 DOTCMS_PORT="${DOTCMS_PORT:-8082}"
 STARTUP_WAIT="${STARTUP_WAIT:-300}"
 CONTAINER_NAME="dotcms-plugin-test"
