@@ -59,6 +59,8 @@
                         <Bundle-Activator>com.dotcms.osgi.app.Activator</Bundle-Activator>
                         <Import-Package>
                         com.dotcms.business.bytebuddy,
+                        org.apache.commons.io;version="[1.4,3)",
+                        org.apache.commons.io.input;version="[1.4,3)",
                         *
                         </Import-Package>
                     </instructions>

@@ -1,4 +1,4 @@
-package com.dotmarketing.osgi.webinterceptors;
+package com.dotcms.osgi.webinterceptors;
 
 import org.osgi.framework.BundleContext;
 import com.dotcms.filters.interceptor.FilterWebInterceptorProvider;

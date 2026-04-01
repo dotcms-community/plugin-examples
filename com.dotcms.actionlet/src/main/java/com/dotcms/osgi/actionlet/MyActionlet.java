@@ -1,4 +1,4 @@
-package com.dotmarketing.osgi.actionlet;
+package com.dotcms.osgi.actionlet;
 
 import com.dotmarketing.portlets.workflows.actionlet.WorkFlowActionlet;
 import com.dotmarketing.portlets.workflows.model.WorkflowActionClassParameter;

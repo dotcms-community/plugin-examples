@@ -50,7 +50,7 @@
                         <Bundle-Vendor>dotCMS</Bundle-Vendor>
                         <Bundle-Description>dotCMS - OSGI Hooks Validations</Bundle-Description>
                         <Bundle-DocURL>https://dotcms.com/</Bundle-DocURL>
-                        <Bundle-Activator>com.dotmarketing.osgi.hooks.Activator</Bundle-Activator>
+                        <Bundle-Activator>com.dotcms.osgi.hooks.Activator</Bundle-Activator>
                         <Import-Package>*</Import-Package>
                     </instructions>
                 </configuration>

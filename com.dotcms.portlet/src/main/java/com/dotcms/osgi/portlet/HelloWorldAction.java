@@ -1,4 +1,4 @@
-package com.dotmarketing.osgi.portlet;
+package com.dotcms.osgi.portlet;
 
 import com.dotcms.repackage.javax.portlet.PortletConfig;
 import com.dotcms.repackage.javax.portlet.RenderRequest;

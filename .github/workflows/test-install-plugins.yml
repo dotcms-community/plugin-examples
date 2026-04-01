@@ -1,0 +1,32 @@
+name: Test Plugin Installation
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  test-plugins:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Build Plugins
+        run: mvn --batch-mode --no-transfer-progress package -DskipTests
+
+      - name: Test Plugin Installation
+        run: |
+          chmod +x .github/bin/test-install-plugins.sh
+          .github/bin/test-install-plugins.sh

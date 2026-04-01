@@ -1,4 +1,4 @@
-package com.dotmarketing.osgi.ruleengine.actionlet;
+package com.dotcms.osgi.ruleengine.actionlet;
 
 import static com.dotcms.repackage.com.google.common.base.Preconditions.checkState;
 

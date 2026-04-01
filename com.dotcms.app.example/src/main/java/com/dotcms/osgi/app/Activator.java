@@ -75,6 +75,7 @@ public final class Activator extends GenericBundleActivator {
 
 
         Logger.info(this.getClass().getName(), "copying YAML File:" + installedAppYaml);
+        installedAppYaml.getParentFile().mkdirs();
         try (final InputStream in = this.getClass().getResourceAsStream("/" + AppKeys.APP_YAML_NAME)) {
             IOUtils.copy(in, Files.newOutputStream(installedAppYaml.toPath()));
         }

@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 import com.dotcms.business.CloseDBIfOpened;
 import com.dotcms.filters.interceptor.Result;
 import com.dotcms.filters.interceptor.WebInterceptor;
-import com.dotcms.repackage.com.google.common.annotations.VisibleForTesting;
 import com.dotcms.security.apps.AppSecrets;
 import com.dotcms.security.apps.AppsAPI;
 import com.dotcms.security.apps.Secret;
@@ -38,7 +37,6 @@ public class AppWebInterceptor implements WebInterceptor {
         this(WebAPILocator.getHostWebAPI(), APILocator.getAppsAPI());
     }
 
-    @VisibleForTesting
     protected AppWebInterceptor( final HostWebAPI hostWebAPI, final AppsAPI appsAPI) {
 
 

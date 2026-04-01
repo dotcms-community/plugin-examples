@@ -1,9 +1,6 @@
-package com.dotmarketing.osgi.hooks;
+package com.dotcms.osgi.hooks;
 
-import com.dotmarketing.loggers.Log4jUtil;
 import com.dotmarketing.osgi.GenericBundleActivator;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.core.LoggerContext;
 import org.osgi.framework.BundleContext;
 
 /**
@@ -13,18 +10,8 @@ import org.osgi.framework.BundleContext;
  */
 public class Activator extends GenericBundleActivator {
 
-    private LoggerContext pluginLoggerContext;
-
     @SuppressWarnings ("unchecked")
     public void start (final BundleContext context ) throws Exception {
-
-        //Initializing log4j...
-        LoggerContext dotcmsLoggerContext = Log4jUtil.getLoggerContext();
-        //Initialing the log4j context of this plugin based on the dotCMS logger context
-        pluginLoggerContext = (LoggerContext) LogManager.getContext(this.getClass().getClassLoader(),
-                false,
-                dotcmsLoggerContext,
-                dotcmsLoggerContext.getConfigLocation());
 
         //Initializing services...
         initializeServices ( context );
@@ -41,9 +28,6 @@ public class Activator extends GenericBundleActivator {
     public void stop (final BundleContext context ) throws Exception {
 
         unregisterServices( context );
-
-        //Shutting down log4j in order to avoid memory leaks
-        Log4jUtil.shutdown(pluginLoggerContext);
     }
 
 }

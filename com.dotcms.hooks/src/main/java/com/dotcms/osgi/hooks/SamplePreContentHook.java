@@ -1,4 +1,4 @@
-package com.dotmarketing.osgi.hooks;
+package com.dotcms.osgi.hooks;
 
 import com.dotmarketing.exception.DotDataException;
 import com.dotmarketing.exception.DotSecurityException;

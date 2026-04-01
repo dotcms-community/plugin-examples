@@ -1,4 +1,4 @@
-package com.dotmarketing.osgi.job;
+package com.dotcms.osgi.job;
 
 import java.io.Serializable;
 import com.dotmarketing.util.Logger;

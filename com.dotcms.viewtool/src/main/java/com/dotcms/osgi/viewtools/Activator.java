@@ -1,4 +1,4 @@
-package com.dotmarketing.osgi.viewtools;
+package com.dotcms.osgi.viewtools;
 
 import org.osgi.framework.BundleContext;
 import com.dotmarketing.osgi.GenericBundleActivator;

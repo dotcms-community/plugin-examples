@@ -57,8 +57,8 @@
                            <Bundle-SymbolicName>${project.groupId}.${project.artifactId}</Bundle-SymbolicName>
                            <Bundle-Name>${project.name}</Bundle-Name>
                            <Bundle-Version>${project.version}</Bundle-Version>
-                           <Bundle-Activator>com.dotmarketing.osgi.external.Activator</Bundle-Activator>
-                           <Private-Package>com.dotmarketing.osgi.external.*</Private-Package>
+                           <Bundle-Activator>com.dotcms.osgi.external.Activator</Bundle-Activator>
+                           <Private-Package>com.dotcms.osgi.external.*</Private-Package>
                            <Import-Package>org.osgi.framework,com.dotmarketing.*,org.apache.felix.http.api,javax.servlet,javax.servlet.http</Import-Package>
                            <Embed-Dependency>*;scope=system;inline=true</Embed-Dependency>
                            <Embed-Directory>lib</Embed-Directory>

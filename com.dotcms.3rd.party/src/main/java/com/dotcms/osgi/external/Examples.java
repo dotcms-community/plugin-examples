@@ -1,4 +1,4 @@
-package com.dotmarketing.osgi.external;
+package com.dotcms.osgi.external;
 
 import hirondelle.date4j.DateTime;
 

@@ -1,6 +1,6 @@
-package com.dotmarketing.osgi.ruleengine.conditionlet;
+package com.dotcms.osgi.ruleengine.conditionlet;
 
-import static com.dotcms.repackage.com.google.common.base.Preconditions.checkState;
+import static com.google.common.base.Preconditions.checkState;
 import static com.dotmarketing.portlets.rules.parameter.comparison.Comparison.IS;
 import static com.dotmarketing.portlets.rules.parameter.comparison.Comparison.IS_NOT;
 
@@ -11,7 +11,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.dotcms.repackage.org.apache.commons.net.util.SubnetUtils;
+import org.apache.commons.net.util.SubnetUtils;
 import com.dotcms.util.HttpRequestDataUtil;
 import com.dotmarketing.portlets.rules.RuleComponentInstance;
 import com.dotmarketing.portlets.rules.conditionlet.ComparisonParameterDefinition;

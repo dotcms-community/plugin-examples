@@ -2,7 +2,6 @@ package com.dotcms.plugin.aop.rest;
 
 import com.dotcms.business.CloseDBIfOpened;
 import com.dotcms.business.WrapInTransaction;
-import com.dotcms.repackage.com.google.common.annotations.VisibleForTesting;
 import com.dotmarketing.beans.Identifier;
 import com.dotmarketing.business.APILocator;
 import com.dotmarketing.business.IdentifierAPI;
@@ -23,7 +22,6 @@ public class MyContentService {
         this(  APILocator.getIdentifierAPI(), new MyESContentFactoryImpl() );
     }
 
-    @VisibleForTesting
     protected MyContentService(final IdentifierAPI identifierAPI,
                                final MyESContentFactoryImpl contentFactory) {
 

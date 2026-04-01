@@ -1,4 +1,4 @@
-package com.dotmarketing.osgi.hooks;
+package com.dotcms.osgi.hooks;
 
 import com.dotcms.dotpubsub.DotPubSubEvent;
 import com.dotcms.dotpubsub.DotPubSubProvider;

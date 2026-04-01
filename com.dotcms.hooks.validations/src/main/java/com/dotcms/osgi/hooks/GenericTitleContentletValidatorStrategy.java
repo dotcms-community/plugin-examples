@@ -1,4 +1,4 @@
-package com.dotmarketing.osgi.hooks;
+package com.dotcms.osgi.hooks;
 
 import com.dotmarketing.portlets.categories.model.Category;
 import com.dotmarketing.portlets.contentlet.business.DotContentletValidationException;

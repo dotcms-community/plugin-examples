@@ -1,44 +1,26 @@
-package com.dotmarketing.osgi.job;
+package com.dotcms.osgi.job;
 
 
 import com.dotmarketing.business.APILocator;
 import com.dotmarketing.osgi.GenericBundleActivator;
 import com.dotmarketing.util.Logger;
-import java.time.Duration;
-import java.time.Instant;
-import java.util.Date;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
-import org.apache.logging.log4j.core.util.CronExpression;
 import org.osgi.framework.BundleContext;
 
 
 public class Activator extends GenericBundleActivator {
 
-
-    private final Runnable runner = new MyCustomRunnable();
+    // Run every 10 seconds
+    private static final long RUN_EVERY_SECONDS = 10;
 
     private final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
-
-    public final static String CRON_EXPRESSION = "0/10 * * * * ?";// Every 10 seconds
 
     @Override
     public void start(final BundleContext context) throws Exception {
 
-        CronExpression cron = new CronExpression(CRON_EXPRESSION);
-
-        Instant now = Instant.now();
-
-        Instant previousRun = cron.getPrevFireTime(Date.from(now)).toInstant();
-        Instant nextRun = cron.getNextValidTimeAfter(Date.from(previousRun)).toInstant();
-
-        Duration delay = Duration.between(previousRun, now);
-        Duration runEvery = Duration.between(previousRun, nextRun);
-
-
-        scheduler.scheduleAtFixedRate(new MyCustomRunnable(), delay.getSeconds(), runEvery.getSeconds(), TimeUnit.SECONDS);
-
+        scheduler.scheduleAtFixedRate(new MyCustomRunnable(), 0, RUN_EVERY_SECONDS, TimeUnit.SECONDS);
     }
 
     /**

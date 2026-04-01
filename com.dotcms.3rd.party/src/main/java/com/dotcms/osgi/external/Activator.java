@@ -1,4 +1,4 @@
-package com.dotmarketing.osgi.external;
+package com.dotcms.osgi.external;
 
 import org.osgi.framework.BundleContext;
 import com.dotmarketing.osgi.GenericBundleActivator;

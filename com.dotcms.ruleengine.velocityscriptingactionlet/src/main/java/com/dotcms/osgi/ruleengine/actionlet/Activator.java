@@ -1,4 +1,4 @@
-package com.dotmarketing.osgi.ruleengine.actionlet;
+package com.dotcms.osgi.ruleengine.actionlet;
 
 import org.osgi.framework.BundleContext;
 import com.dotmarketing.osgi.GenericBundleActivator;

@@ -50,8 +50,8 @@
                         <Bundle-Vendor>dotCMS</Bundle-Vendor>
                         <Bundle-Description>dotCMS - A bundle that creates a custom service</Bundle-Description>
                         <Bundle-DocURL>https://dotcms.com/</Bundle-DocURL>
-                        <Bundle-Activator>com.dotmarketing.osgi.service.Activator</Bundle-Activator>
-                        <Export-Package>com.dotmarketing.osgi.service</Export-Package>
+                        <Bundle-Activator>com.dotcms.osgi.service.Activator</Bundle-Activator>
+                        <Export-Package>com.dotcms.osgi.service</Export-Package>
                         <Import-Package>*</Import-Package>
                     </instructions>
                 </configuration>

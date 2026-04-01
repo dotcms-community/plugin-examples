@@ -1,4 +1,4 @@
-package com.dotmarketing.osgi.job;
+package com.dotcms.osgi.job;
 
 import com.dotmarketing.util.Logger;
 import org.quartz.Job;

@@ -50,7 +50,7 @@
                         <Bundle-Vendor>dotCMS</Bundle-Vendor>
                         <Bundle-Description>dotCMS - Osgi Web Interceptors example</Bundle-Description>
                         <Bundle-DocURL>https://dotcms.com/</Bundle-DocURL>
-                        <Bundle-Activator>com.dotmarketing.osgi.webinterceptors.Activator</Bundle-Activator>
+                        <Bundle-Activator>com.dotcms.osgi.webinterceptors.Activator</Bundle-Activator>
                         <Import-Package>*</Import-Package>
                     </instructions>
                 </configuration>

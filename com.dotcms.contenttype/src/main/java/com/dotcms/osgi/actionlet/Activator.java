@@ -1,4 +1,4 @@
-package com.dotmarketing.osgi.actionlet;
+package com.dotcms.osgi.actionlet;
 
 import com.dotcms.contenttype.model.field.DataTypes;
 import com.dotcms.contenttype.model.field.Field;

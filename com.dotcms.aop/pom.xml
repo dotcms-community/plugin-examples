@@ -63,7 +63,7 @@
                         <Bundle-Vendor>dotCMS</Bundle-Vendor>
                         <Bundle-Description>dotCMS - AOP Example</Bundle-Description>
                         <Bundle-DocURL>https://dotcms.com/</Bundle-DocURL>
-                        <Bundle-Activator>com.dotcms.aop.Activator</Bundle-Activator> <!-- Update as per your Activator's package -->
+                        <Bundle-Activator>com.dotcms.plugin.aop.Activator</Bundle-Activator>
                         <Import-Package>*</Import-Package>
                     </instructions>
                 </configuration>

@@ -39,7 +39,7 @@ jobs:
           git checkout -b ${release_branch}
           
           echo "Replacing version in parent pom.xml"
-          python3 ${{ github.workspace }}/update_osgi_plugins.py ./pom.xml ${release_version}
+          python3 ${{ github.workspace }}/.github/bin/update_osgi_plugins.py ./pom.xml ${release_version}
           grep "${release_version}" ./pom.xml
           
           git status

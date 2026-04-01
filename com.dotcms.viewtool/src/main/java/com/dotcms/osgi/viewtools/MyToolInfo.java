@@ -1,4 +1,4 @@
-package com.dotmarketing.osgi.viewtools;
+package com.dotcms.osgi.viewtools;
 
 import org.apache.velocity.tools.view.context.ViewContext;
 import org.apache.velocity.tools.view.servlet.ServletToolInfo;

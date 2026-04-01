@@ -4,8 +4,6 @@ import com.dotcms.rest.InitDataObject;
 import com.dotcms.rest.ResponseEntityView;
 import com.dotcms.rest.WebResource;
 import com.dotcms.rest.annotation.NoCache;
-import com.dotcms.rest.exception.mapper.ExceptionMapperUtil;
-import com.dotcms.util.LogTime;
 import com.dotmarketing.business.APILocator;
 import com.dotmarketing.exception.DotDataException;
 import com.dotmarketing.exception.DotSecurityException;
@@ -31,7 +29,6 @@ public class MyContentResource {
     @GET
     @Path("/inode/{inode}")
     @Produces(MediaType.APPLICATION_JSON)
-    @LogTime
     public Response getContentByInode(@Context final HttpServletRequest request,
                                       @Context final HttpServletResponse response,
                                @PathParam("inode") final String inode) throws DotSecurityException, DotDataException {

@@ -13,8 +13,8 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
         <dotcms-core.version>26.02.11-01</dotcms-core.version>
     </properties>
 
@@ -48,8 +48,7 @@
         <module>com.dotcms.hooks</module>
         <module>com.dotcms.hooks.pubsub</module>
         <module>com.dotcms.hooks.validations</module>
-        <module>com.dotcms.override</module>
-        <module>com.dotcms.portlet</module>
+<module>com.dotcms.portlet</module>
         <module>com.dotcms.pushpublish.listener</module>
         <module>com.dotcms.rest</module>
         <module>com.dotcms.ruleengine.velocityscriptingactionlet</module>

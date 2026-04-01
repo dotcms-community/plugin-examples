@@ -2,7 +2,6 @@ package com.dotcms.osgi.app;
 
 import java.io.Serializable;
 import java.util.Arrays;
-import javax.annotation.Nonnull;
 import com.dotmarketing.util.UtilMethods;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
@@ -85,23 +84,23 @@ public class AppConfig implements Serializable {
 
         }
 
-        public Builder checkbox(@Nonnull boolean checkbox) {
+        public Builder checkbox(boolean checkbox) {
             this.checkbox = checkbox;
             return this;
         }
 
 
-        public Builder variableOne(@Nonnull String variableOne) {
+        public Builder variableOne(String variableOne) {
             this.variableOne = variableOne;
             return this;
         }
 
-        public Builder variableTwo(@Nonnull char[] variableTwo) {
+        public Builder variableTwo(char[] variableTwo) {
             this.variableTwo = variableTwo;
             return this;
         }
 
-        public Builder selectVariable(@Nonnull String selectVariable) {
+        public Builder selectVariable(String selectVariable) {
             this.selectVariable = selectVariable;
             return this;
         }

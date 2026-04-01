@@ -1,4 +1,4 @@
-package com.dotmarketing.osgi.webinterceptors;
+package com.dotcms.osgi.webinterceptors;
 
 import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;

@@ -59,6 +59,12 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        <dependency>
+            <groupId>commons-net</groupId>
+            <artifactId>commons-net</artifactId>
+            <version>3.6</version>
+            <scope>provided</scope>
+        </dependency>
         <!-- Add more dependencies as needed -->
     </dependencies>
 
@@ -74,7 +80,7 @@
                         <Bundle-Vendor>dotCMS</Bundle-Vendor>
                         <Bundle-Description>dotCMS - OSGI Visitor IP Conditionlet</Bundle-Description>
                         <Bundle-DocURL>https://dotcms.com/</Bundle-DocURL>
-                        <Bundle-Activator>com.dotmarketing.osgi.ruleengine.conditionlet.Activator</Bundle-Activator>
+                        <Bundle-Activator>com.dotcms.osgi.ruleengine.conditionlet.Activator</Bundle-Activator>
                         <Import-Package>*</Import-Package>
                     </instructions>
                 </configuration>

@@ -1,4 +1,4 @@
-package com.dotmarketing.osgi.service;
+package com.dotcms.osgi.service;
 
 /**
  * Created by Jonathan Gamba

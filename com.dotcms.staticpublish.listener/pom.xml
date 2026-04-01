@@ -35,18 +35,6 @@
             <version>${dotcms-core.version}</version>
             <scope>provided</scope>
         </dependency>
-        <dependency>
-            <groupId>com.hierynomus</groupId>
-            <artifactId>sshj</artifactId>
-            <version>0.23.0</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-simple</artifactId>
-            <version>1.7.7</version>
-            <scope>provided</scope>
-        </dependency>
         <!-- Add more dependencies as needed -->
     </dependencies>
 
@@ -63,20 +51,6 @@
                         <Bundle-Description>dotCMS - OSGI Static Event Listener example</Bundle-Description>
                         <Bundle-DocURL>https://dotcms.com/</Bundle-DocURL>
                         <Bundle-Activator>com.dotcms.staticpublish.Activator</Bundle-Activator>
-                        <Bundle-ClassPath>.,
-                            libs/eddsa-0.2.0.jar,
-                            libs/jzlib-1.1.3.jar,
-                            libs/slf4j-api-1.7.7.jar,
-                            libs/slf4j-simple-1.7.7.jar,
-                            libs/sshj-0.23.0.jar
-                        </Bundle-ClassPath>
-                        <Export-Package>
-                            org.bouncycastle.jce.provider.*,
-                            org.bouncycastle.jcajce.provider.asymmetric.rsa.DigestSignatureSpi.*,
-                            org.bouncycastle.jcajce.provider.digest.*,
-                            org.bouncycastle.jcajce.provider.asymmetric.ec.KeyAgreementSpi.*,
-                            org.bouncycastle.jcajce.provider.asymmetric.*
-                        </Export-Package>
                         <Import-Package>*</Import-Package>
                     </instructions>
                 </configuration>

@@ -1,6 +1,6 @@
-package com.dotmarketing.osgi.ruleengine.actionlet;
+package com.dotcms.osgi.ruleengine.actionlet;
 
-import static com.dotmarketing.osgi.ruleengine.actionlet.VelocityScriptingActionlet.INPUT_VELOCITY_SCRIPT_KEY;
+import static com.dotcms.osgi.ruleengine.actionlet.VelocityScriptingActionlet.INPUT_VELOCITY_SCRIPT_KEY;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
