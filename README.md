@@ -1,4 +1,4 @@
-# plugin-seeds — dotCMS OSGi Plugin Examples
+# dotCMS OSGi Plugin Examples
 
 [![Build Check](https://github.com/dotCMS/plugin-seeds/actions/workflows/build-check.yml/badge.svg)](https://github.com/dotCMS/plugin-seeds/actions/workflows/build-check.yml)
 [![Plugin Installation Test](https://github.com/dotCMS/plugin-seeds/actions/workflows/test-install-plugins.yml/badge.svg)](https://github.com/dotCMS/plugin-seeds/actions/workflows/test-install-plugins.yml)
