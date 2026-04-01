@@ -31,7 +31,7 @@ jobs:
           git config user.email "dotCMS-Machine-User@dotcms.com"
           git config pull.rebase false
           
-          remote=$(git ls-remote --heads https://github.com/dotCMS/plugin-seeds.git ${release_branch} | wc -l | tr -d '[:space:]')
+          remote=$(git ls-remote --heads https://github.com/dotcms-community/plugin-examples.git ${release_branch} | wc -l | tr -d '[:space:]')
           if [[ "${remote}" == '1' && "${release_branch}" != 'main' ]]; then
             echo "Release branch ${release_branch} already exists, removing it"
             git push origin :${release_branch}
