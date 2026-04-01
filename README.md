@@ -1,7 +1,7 @@
 # dotCMS OSGi Plugin Examples
 
-[![Build Check](https://github.com/dotCMS/plugin-seeds/actions/workflows/build-check.yml/badge.svg)](https://github.com/dotCMS/plugin-seeds/actions/workflows/build-check.yml)
-[![Plugin Installation Test](https://github.com/dotCMS/plugin-seeds/actions/workflows/test-install-plugins.yml/badge.svg)](https://github.com/dotCMS/plugin-seeds/actions/workflows/test-install-plugins.yml)
+[![Build Check](https://github.com/dotCMS-community/plugin-examples/actions/workflows/build-check.yml/badge.svg)](https://github.com/dotCMS/plugin-examples/actions/workflows/build-check.yml)
+[![Plugin Installation Test](https://github.com/dotCMS-community/plugin-examples/actions/workflows/test-install-plugins.yml/badge.svg)](https://github.com/dotCMS/plugin-examples/actions/workflows/test-install-plugins.yml)
 
 A collection of working, tested example plugins showing how to extend and customize dotCMS using OSGi bundles. Every plugin in this repo is verified to build and reach ACTIVE state in a dotCMS nightly container on every push.
 
@@ -36,8 +36,8 @@ A collection of working, tested example plugins showing how to extend and custom
 ## Getting Started
 
 ```sh
-git clone https://github.com/dotCMS/plugin-seeds.git
-cd plugin-seeds
+git clone https://github.com/dotCMS/plugin-examples.git
+cd plugin-examples
 ```
 
 Copy the plugin folder closest to what you need, rename it, and update the `artifactId` and package names. Each plugin folder has its own README with details.
