@@ -6,7 +6,7 @@ name: Test Plugins on dotCMS Release
 
 on:
   schedule:
-    - cron: '0 6 * * *'   # 06:00 UTC daily
+    - cron: '0 */4 * * *'  # every 4 hours
   workflow_dispatch:
     inputs:
       dotcms_version:
