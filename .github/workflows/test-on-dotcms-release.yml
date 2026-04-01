@@ -1,0 +1,131 @@
+name: Test Plugins on dotCMS Release
+
+# Polls dotcms/core for new releases daily; runs plugin tests only when
+# a version newer than LAST_TESTED_DOTCMS_VERSION is published.
+# Also runnable manually to test a specific version.
+
+on:
+  schedule:
+    - cron: '0 */4 * * *'  # every 4 hours
+  workflow_dispatch:
+    inputs:
+      dotcms_version:
+        description: 'dotCMS version to test (e.g. 26.03.27-01). Leave blank to use latest release.'
+        required: false
+        default: ''
+
+permissions:
+  actions: write        # update LAST_TESTED_DOTCMS_VERSION variable
+  contents: write       # push version-bump branch
+  pull-requests: write  # open PR
+
+jobs:
+  check-release:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.resolve.outputs.version }}
+      should_run: ${{ steps.resolve.outputs.should_run }}
+
+    steps:
+      - name: Resolve dotCMS version
+        id: resolve
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          INPUT_VERSION: ${{ inputs.dotcms_version }}
+          LAST_TESTED: ${{ vars.LAST_TESTED_DOTCMS_VERSION }}
+        run: |
+          if [[ -n "${INPUT_VERSION}" ]]; then
+            VERSION="${INPUT_VERSION}"
+            echo "Manual run — testing version ${VERSION}"
+            echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
+            echo "should_run=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          # Fetch latest core release (exclude dotcms-cli tags)
+          VERSION=$(gh release list --repo dotcms/core --limit 20 \
+            --json tagName,name,isLatest \
+            --jq '[.[] | select(.name | test("^Release "))] | first | .tagName | ltrimstr("v")')
+
+          if [[ -z "${VERSION}" ]]; then
+            echo "Could not determine latest dotCMS release — aborting."
+            exit 1
+          fi
+
+          echo "Latest dotCMS release: ${VERSION}"
+          echo "Last tested version:   ${LAST_TESTED}"
+
+          if [[ "${VERSION}" == "${LAST_TESTED}" ]]; then
+            echo "Already tested — skipping."
+            echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
+            echo "should_run=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "New version detected — will run tests."
+            echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
+            echo "should_run=true" >> "$GITHUB_OUTPUT"
+          fi
+
+  test-plugins:
+    needs: check-release
+    if: needs.check-release.outputs.should_run == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      DOTCMS_VERSION: ${{ needs.check-release.outputs.version }}
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Bump dotcms-core.version in pom.xml
+        run: |
+          sed -i "s|<dotcms-core.version>.*</dotcms-core.version>|<dotcms-core.version>${{ env.DOTCMS_VERSION }}</dotcms-core.version>|" pom.xml
+          echo "pom.xml updated:"
+          grep dotcms-core.version pom.xml
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Build Plugins
+        run: mvn --batch-mode --no-transfer-progress package -DskipTests
+
+      - name: Test Plugin Installation
+        env:
+          DOTCMS_IMAGE: mirror.gcr.io/dotcms/dotcms-dev:${{ env.DOTCMS_VERSION }}
+        run: |
+          echo "Testing against image: ${DOTCMS_IMAGE}"
+          chmod +x .github/bin/test-install-plugins.sh
+          .github/bin/test-install-plugins.sh
+
+      - name: Open version-bump PR
+        if: success()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          BRANCH="chore/dotcms-core-${{ env.DOTCMS_VERSION }}"
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -b "${BRANCH}"
+          git add pom.xml
+          git commit -m "chore: bump dotcms-core.version to ${{ env.DOTCMS_VERSION }}"
+          git push origin "${BRANCH}"
+          gh pr create \
+            --title "chore: bump dotcms-core.version to ${{ env.DOTCMS_VERSION }}" \
+            --body "Automated version bump — plugin tests passed against \`dotcms/dotcms-dev:${{ env.DOTCMS_VERSION }}\`." \
+            --base main \
+            --head "${BRANCH}"
+
+      - name: Update last tested version
+        if: success()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh variable set LAST_TESTED_DOTCMS_VERSION \
+            --body "${{ env.DOTCMS_VERSION }}" \
+            --repo "${{ github.repository }}"
