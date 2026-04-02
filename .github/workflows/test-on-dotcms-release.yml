@@ -15,9 +15,8 @@ on:
         default: ''
 
 permissions:
-  actions: write        # update LAST_TESTED_DOTCMS_VERSION variable
-  contents: write       # push version-bump branch
-  pull-requests: write  # open PR
+  actions: write   # update LAST_TESTED_DOTCMS_VERSION variable
+  contents: write  # commit to main and create release tag
 
 jobs:
   check-release:
@@ -103,23 +102,24 @@ jobs:
           chmod +x .github/bin/test-install-plugins.sh
           .github/bin/test-install-plugins.sh
 
-      - name: Open version-bump PR
+      - name: Commit and push to main
+        if: success()
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add pom.xml
+          git commit -m "chore: bump dotcms-core.version to ${{ env.DOTCMS_VERSION }}"
+          git push origin HEAD:main
+
+      - name: Tag release
         if: success()
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          BRANCH="chore/dotcms-core-${{ env.DOTCMS_VERSION }}"
-          git config user.name  "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git checkout -b "${BRANCH}"
-          git add pom.xml
-          git commit -m "chore: bump dotcms-core.version to ${{ env.DOTCMS_VERSION }}"
-          git push origin "${BRANCH}"
-          gh pr create \
-            --title "chore: bump dotcms-core.version to ${{ env.DOTCMS_VERSION }}" \
-            --body "Automated version bump — plugin tests passed against \`dotcms/dotcms-dev:${{ env.DOTCMS_VERSION }}\`." \
-            --base main \
-            --head "${BRANCH}"
+          gh release create "${{ env.DOTCMS_VERSION }}" \
+            --title "Compatible with dotCMS ${{ env.DOTCMS_VERSION }}" \
+            --notes "All plugins verified ACTIVE against \`dotcms/dotcms-dev:${{ env.DOTCMS_VERSION }}\`." \
+            --target main
 
       - name: Update last tested version
         if: success()
