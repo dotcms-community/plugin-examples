@@ -22,10 +22,10 @@ A collection of working, tested example plugins showing how to extend and custom
 | [`com.dotcms.hooks.validations`](com.dotcms.hooks.validations) | Pre-checkin validation hooks using a pluggable strategy pattern |
 | [`com.dotcms.job`](com.dotcms.job) | Schedule recurring jobs from an OSGi bundle |
 | [`com.dotcms.portlet`](com.dotcms.portlet) | Add custom admin portlets to the dotCMS back-end |
-| [`com.dotcms.pushpublish.listener`](com.dotcms.pushpublish.listener) | Listen to Push Publish lifecycle events |
+| [`com.dotcms.pushpublish.listener`](com.dotcms.pushpublish.listener) | Listen and respond to Push Publish lifecycle events |
 | [`com.dotcms.rest`](com.dotcms.rest) | Expose custom Jersey REST endpoints |
-| [`com.dotcms.ruleengine.velocityscriptingactionlet`](com.dotcms.ruleengine.velocityscriptingactionlet) | Rules Engine actionlet that executes Velocity script |
-| [`com.dotcms.ruleengine.visitoripconditionlet`](com.dotcms.ruleengine.visitoripconditionlet) | Rules Engine conditionlet that matches visitor IP/CIDR |
+| [`com.dotcms.ruleengine.velocityscriptingactionlet`](com.dotcms.ruleengine.velocityscriptingactionlet) | Example Rules Engine actionlet that executes Velocity script |
+| [`com.dotcms.ruleengine.visitoripconditionlet`](com.dotcms.ruleengine.visitoripconditionlet) | Example Rules Engine conditionlet that matches visitor IP/CIDR |
 | [`com.dotcms.servlet`](com.dotcms.servlet) | Servlet/filter-style request handling via WebInterceptors |
 | [`com.dotcms.simpleService`](com.dotcms.simpleService) | Publish a reusable OSGi service for other bundles to consume |
 | [`com.dotcms.staticpublish.listener`](com.dotcms.staticpublish.listener) | Hook into Static Push Publish events |
