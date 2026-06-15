@@ -65,6 +65,7 @@
                         <Bundle-DocURL>https://dotcms.com/</Bundle-DocURL>
                         <Bundle-Activator>com.dotcms.plugin.aop.Activator</Bundle-Activator>
                         <Import-Package>*</Import-Package>
+                        <_noee>true</_noee>
                     </instructions>
                 </configuration>
             </plugin>

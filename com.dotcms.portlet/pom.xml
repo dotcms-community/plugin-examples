@@ -52,6 +52,7 @@
                         <Bundle-DocURL>https://dotcms.com/</Bundle-DocURL>
                         <Bundle-Activator>com.dotcms.osgi.portlet.Activator</Bundle-Activator>
                         <Import-Package>*</Import-Package>
+                        <_noee>true</_noee>
                     </instructions>
                 </configuration>
             </plugin>

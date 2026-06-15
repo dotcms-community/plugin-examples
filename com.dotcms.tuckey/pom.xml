@@ -55,6 +55,7 @@
                         <Bundle-Activator>com.dotcms.tuckey.Activator</Bundle-Activator>
                         <Import-Package>*</Import-Package>
                         <!-- Additional Bundle instructions as needed -->
+                        <_noee>true</_noee>
                     </instructions>
                 </configuration>
             </plugin>

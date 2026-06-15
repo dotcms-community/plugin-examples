@@ -53,6 +53,7 @@
                         <Bundle-Activator><!-- Placeholder, replace with actual activator package --></Bundle-Activator>
                         <Import-Package>*</Import-Package>
                         <!-- Any additional instructions go here -->
+                        <_noee>true</_noee>
                     </instructions>
                 </configuration>
             </plugin>

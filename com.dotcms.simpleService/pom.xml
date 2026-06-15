@@ -53,6 +53,7 @@
                         <Bundle-Activator>com.dotcms.osgi.service.Activator</Bundle-Activator>
                         <Export-Package>com.dotcms.osgi.service</Export-Package>
                         <Import-Package>*</Import-Package>
+                        <_noee>true</_noee>
                     </instructions>
                 </configuration>
             </plugin>

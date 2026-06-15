@@ -53,6 +53,7 @@
                         <Bundle-Activator>com.dotcms.osgi.fixasset.Activator</Bundle-Activator>
                         <DynamicImport-Package>*</DynamicImport-Package>
                         <Import-Package>*</Import-Package>
+                        <_noee>true</_noee>
                     </instructions>
                 </configuration>
             </plugin>

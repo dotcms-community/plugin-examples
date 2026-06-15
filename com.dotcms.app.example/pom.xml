@@ -63,6 +63,7 @@
                         org.apache.commons.io.input;version="[1.4,3)",
                         *
                         </Import-Package>
+                        <_noee>true</_noee>
                     </instructions>
                 </configuration>
             </plugin>
