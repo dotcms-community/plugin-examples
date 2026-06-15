@@ -1,0 +1,3 @@
+# sets the SDKMAN_JAVA_VERSION for dotCMS plugin examples
+# this is the version of java used to build the plugins and matches the dotCMS core runtime
+java=25.0.2-ms

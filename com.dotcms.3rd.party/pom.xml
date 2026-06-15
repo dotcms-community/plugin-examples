@@ -16,8 +16,8 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
+        <maven.compiler.source>25</maven.compiler.source>
+        <maven.compiler.target>25</maven.compiler.target>
     </properties>
 
     <repositories>
@@ -64,6 +64,7 @@
                            <Embed-Directory>lib</Embed-Directory>
                            <Embed-StripGroup>true</Embed-StripGroup>
                            <Bundle-ClassPath>.,{maven-dependencies}</Bundle-ClassPath>
+                           <_noee>true</_noee>
                        </instructions>
                    </configuration>
                </plugin>
